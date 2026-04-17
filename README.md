@@ -203,3 +203,4 @@ cmake --build build-make -j
 ## 更新履歴
 
 - 2004年3月25日：初版作成．
+- 2026年4月17日：CMakeLists.txt 追加．
