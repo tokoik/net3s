@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 
 # プログラム名をプロジェクト名と同じにする
-project(net3s C)
+project(net3s CXX)
 
-add_executable(${PROJECT_NAME} "main.c" "quaternion.c")
+add_executable(${PROJECT_NAME} "main.cpp" "quaternion.cpp")
 
 if(WIN32)
     # Windows: プログラム名をスタートアッププロジェクトに設定
