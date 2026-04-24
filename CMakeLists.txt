@@ -3,7 +3,13 @@ cmake_minimum_required(VERSION 3.15)
 # プログラム名をプロジェクト名と同じにする
 project(net3s CXX)
 
-add_executable(${PROJECT_NAME} "main.cpp" "quaternion.cpp")
+if(APPLE)
+    add_executable(${PROJECT_NAME} MACOSX_BUNDLE "main.cpp" "quaternion.cpp")
+    # Xcode でプロジェクトを開いたときに起動できるようにスキームを生成する
+    set_target_properties(${PROJECT_NAME} PROPERTIES XCODE_GENERATE_SCHEME ON)
+else()
+    add_executable(${PROJECT_NAME} "main.cpp" "quaternion.cpp")
+endif()
 
 if(WIN32)
     # Windows: プログラム名をスタートアッププロジェクトに設定
@@ -23,7 +29,7 @@ if(WIN32)
     )
     FetchContent_MakeAvailable(freeglut)
 
-    # freeglut のインクルードディレクトリを追加 (glut.h を見つけるため)
+    # glut.h を見つけるために freeglut のインクルードディレクトリを追加
     target_include_directories(${PROJECT_NAME} PRIVATE "${freeglut_SOURCE_DIR}/include" "${freeglut_SOURCE_DIR}/include/GL")
 
     # freeglut ターゲットと OpenGL, GLU をリンク
@@ -73,5 +79,6 @@ elseif(UNIX)
         ${PKG_GLUT_LIBRARIES}
         ${PKG_GL_LIBRARIES}
         ${PKG_GLU_LIBRARIES}
+        m
     )
 endif()
