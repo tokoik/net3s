@@ -1,14 +1,14 @@
-﻿#include <stdlib.h>
-#include <math.h>
-#if defined(__APPLE__) || defined(MACOSX)
+﻿#if defined(__APPLE__)
 #  define GL_SILENCE_DEPRECATION
 #  include <GLUT/glut.h>
 #else
 #  if defined(WIN32)
-#    pragma comment(linker, "/subsystem:¥"windows¥" /entry:¥"mainCRTStartup¥"")
+#    pragma comment(linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
 #  endif
 #  include <GL/glut.h>
 #endif
+#include <stdlib.h>
+#include <math.h>
 
 /* 環境設定 */
 #define ZNEAR      0.3                        /* 前方面の位置　　　　　　　　　　　　　 */
