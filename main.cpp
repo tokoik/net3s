@@ -477,7 +477,7 @@ void surface(struct Knot *k, int n)
 /*
 ** 画面表示
 */
-void display(void)
+void display()
 {
   static float lightpos[] = { 0.0, 0.0, 1.0, 0.0 };
   GLdouble f = parallax * 0.5 * ZNEAR / DISTANCE;
@@ -615,7 +615,7 @@ void resize(int w, int h)
 #endif
 }
 
-void idle(void)
+void idle()
 {
   glutPostRedisplay();
 }
@@ -805,7 +805,7 @@ void keyboard(unsigned char key, int x, int y)
   }
 }
 
-void init(void)
+void init()
 {
   /* OpenGL の初期設定 */
   glClearColor(1.0, 1.0, 1.0, 0.0);
