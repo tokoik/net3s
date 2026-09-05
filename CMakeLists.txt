@@ -17,7 +17,9 @@ if(APPLE)
         MACOSX_BUNDLE_SHORT_VERSION_STRING "1.0"
         MACOSX_BUNDLE_GUI_IDENTIFIER "com.example.net3s"
         RESOURCE "opengl.icns"
+        XCODE_SCHEME_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
     )
+    set_property(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}" PROPERTY XCODE_GENERATE_SCHEME ON)
 else()
     add_executable(${PROJECT_NAME} "main.cpp" "quaternion.cpp")
 endif()
